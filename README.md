@@ -1,6 +1,6 @@
 # AD_DS_Windows
 # Description : Permet d'ajouter plusieurs Group et utilisateur a un Active Directory Windows Serveur 
-# ############################################################################ #
+# ##################################################### #
 # -------------------------------------------------------------------------
 # Comment Installer et utiliser le Script PowerShell avec ‘Git’ sur PowerShell.
 1)	Ouvré un terminale PowerShell en ‘Administrateur’
