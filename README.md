@@ -14,7 +14,11 @@
 # -------------------------------------------------------------------------
 # Comment Installer et utiliser le Script PowerShell sur CMD ou PowerShell.
 1)	Ouvré un terminale CMD ou Powershell en ‘Administrateur’
-2)	Entez la command -> cd %USERPROFILE% & mkdir AD_DS_Windows & cd ./AD_DS_Windows & curl -o NewaddUsers.ps1 https://raw.githubusercontent.com/00MY00/AD_DS_Windows/main/NewaddUsers.ps1 & powershell.exe ./NewaddUsers.ps1
+2)	Entez la command -> cd %USERPROFILE% & mkdir AD_DS_Windows & cd ./AD_DS_Windows & curl -o NewaddUsers.ps1 https://raw.githubusercontent.com/00MY00/AD_DS_Windows/main/NewaddUsers.ps1
+
+Execution du script:
+3)	CMD 		-> powershell.exe ./NewaddUsers.ps1
+3)	PowerShell 	-> ./NewaddUsers.ps1
 
 # Helpe
 1)  Si vous rencontrée des problème vérifier que vous autoriser l’exécution de script -> ‘Set-ExecutionPolicy Unrestricted’
