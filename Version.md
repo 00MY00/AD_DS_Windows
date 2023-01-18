@@ -24,8 +24,8 @@
 ----
 <h style="color: #0eede9"> Version 1.1 </h>
 * <span style="color: #fcc00a">Nouveauté : </span>
-Vérification que l'AD est bien installer avent de poursuivre 
-Simplification de l'adaptation au nom de domaine existent
+Vérification que l'AD est bien installer avent de poursuivre le script
+Adaptation au nom de domaine existent automatique
 
 * <span style="color: #fc670a">Auteur : </span>
 <span style="color: #2a990b">Denis, Kuroakashiro</span>
