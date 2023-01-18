@@ -35,7 +35,8 @@ Execution du script:
 # <span style="color: #d17504">Example : </span>
 * LastName,FirstName,UserName,Password,OrganizationalUnit
 * "Nom_de_Famil","Prenom","Nom_D_Utilisateur","Mot_De_pass", "OU=Unité_d_organisation,DC=Mon,DC=domaine,DC=local"
+<br> </br>
 
-# ============================== #
-# Auteur : Denis & Kuroakashiro  #
-# ============================== #
+----
+# <span style="color: #2dcf9c">Auteur : Denis & Kuroakashiro  </span>
+----
