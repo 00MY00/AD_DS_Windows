@@ -3,18 +3,25 @@
 # Information de Version 
 ***********************
 
-# Version actuel 1.0
+# <span style="color: #d60db5"> Version actuel 1.0 </span>
+<br></br>
+
+
+
+
+
+---- 
+# <span style="color: #0dba66">A venire Version 1.1 </span>
+* simplification de l'adaptation au nom de domaine existent
+* Verification que l'AD est bien instaler avent de poursuivre
+---- 
 
 
 
 
 
 
-
-
-
-
-
+<br></br>
 ----
 <h style="color: #0eede9"> Version 1.0 </h>
 * <span style="color: #fcc00a">Nouveauté : </span>
