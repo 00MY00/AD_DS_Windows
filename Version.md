@@ -28,7 +28,7 @@ Vérification que l'AD est bien installer avent de poursuivre le script
 Adaptation au nom de domaine existent automatique
 
 * <span style="color: #fc670a">Auteur : </span>
-<span style="color: #2a990b">Denis, Kuroakashiro</span>
+<span style="color: #2a990b">Kuroakashiro</span>
 
 * <span style="color: #0a2afc">Description : </span>
 Script écrit en PowerShell s’exécute seulement sur des serveurs équiper et configurer avec un Active Directory. 
