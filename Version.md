@@ -3,7 +3,7 @@
 # Information de Version 
 ***********************
 
-# <span style="color: #d60db5"> Version actuel 1.0 </span>
+# <span style="color: #d60db5"> Version actuel 1.1 </span>
 <br></br>
 
 
@@ -11,12 +11,28 @@
 
 
 ---- 
-# <span style="color: #0dba66">A venir Version 1.1 </span>
-* Simplification de l'adaptation au nom de domaine existent
-* Vérification que l'AD est bien installer avent de poursuivre
+# <span style="color: #0dba66">A venir Version 1.2 </span>
+* Verification de la validation du MDP
+* Crach report
 ---- 
 
 
+
+
+
+<br></br>
+----
+<h style="color: #0eede9"> Version 1.1 </h>
+* <span style="color: #fcc00a">Nouveauté : </span>
+Vérification que l'AD est bien installer avent de poursuivre 
+Simplification de l'adaptation au nom de domaine existent
+
+* <span style="color: #fc670a">Auteur : </span>
+<span style="color: #2a990b">Denis, Kuroakashiro</span>
+
+* <span style="color: #0a2afc">Description : </span>
+Script écrit en PowerShell s’exécute seulement sur des serveurs équiper et configurer avec un Active Directory. 
+----
 
 
 

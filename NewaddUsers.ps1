@@ -12,6 +12,7 @@
 # d'utilisation du script                      #
 ################################################
 
+# Version 1.1
 
 # Importation du Module Active Directory
 Import-Module ActiveDirectory
@@ -21,7 +22,7 @@ chcp 65001
 # Changement de la tail de fenêtre
 mode con cols=35 lines=15
 # Changement du titre pour conaitre l'étape actuelle du script
-$host.ui.RawUI.WindowTitle = “Recherche de fichier Users.csv”
+$host.ui.RawUI.WindowTitle = “Verification De AD”
 
 # Variable Style
 $BarreDuAu = "╔═══════════════════════════════════════════╗"
@@ -42,6 +43,7 @@ $StrCSVDefinit = "Une erreur est survenue 0 ligne dans le fichier"
 $StrErreurImportFichier = "Une Erreur est survenu lord de l'importation !"
 $StrErreurEntrerIncorect = "`n `nEntée incorecte !!"
 $StrFichierIntrouvabl = "Aucun fichier trouvés ! `nLe fichier doi s'apeler 'Users*.csv'"
+$StrNoAD = "[ERREUR] Une erreur est survenu avec l'AD. `nVerifier que l'Active Directory soit bien instalée et confugurée"
 
 # Variavles location
 $location = $PWD
@@ -190,8 +192,42 @@ $termine1 = "
 "
 #===================#
 
+# Verification que AD et instalée
+Write-Host "Verification en cours ..."
+$x = Get-ADReplicationFailure localhost
+$Errorlevel = $?
+clear
+if ( $Errorlevel -eq $False )
+{
+    # Changement de la tail de fenêtre
+    mode con cols=60 lines=15
+    Write-Host "$StrNoAD"
+    Start-Sleep 20
+    exit
+}
+else {
+    clear
+}
+##################################
+
+# NB de DC=
+# $x = Get-ADReplicationFailure localhost
+# $NbDC = ([regex]::Matches($xx, "DC=" )).count
+$x = $x.Partner
+$xx = "$x"
+$x = $xx.Split(',')
+$xx = $x | Select-String "DC="
+$x = $xx -replace(' ')
+# DC contien le vrais DC trouvée localement
+$DC = $x -join(",")
 
 
+# Reconcaténée les str en retirent les espace est saut de ligne
+
+
+
+#################################
+$host.ui.RawUI.WindowTitle = “Recherche de fichier Users.csv”
 
 # Verification ci fichier Temporaire existe
 $Errorlevel = Test-Path -Path "$PWD\MesCSV.txt" -PathType Leaf
@@ -343,17 +379,18 @@ if ( $NbLignes.lines -gt 1 )
 if ( $NbLignes.Lines -lt 1 )
 {
     $Errorlevel = Test-Path -Path "$env:USERPROFILE\Desktop\Users_Exemple.csv" -PathType Leaf
-    if ( $Errorlevel -eq $True )
+    if ( $Errorlevel -eq $False )
     {
         
         "LastName,FirstName,UserName,Password,OrganizationalUnit" >> $env:USERPROFILE\Desktop\Users_Exemple.csv
-        '"Nom_de_Famil","Prenom","Nom_D_Utilisateur","Mot_De_pass","OU=Unité_d_organisation,DC=Mon,DC=domaine,DC=local"' >> $env:USERPROFILE\Desktop\Users_Exemple.csv
+        '"Nom_de_Famil","Prenom","Nom_D_Utilisateur","Mot_De_pass","OU=Unité_d_organisation,' + "$DC" + '"' >> $env:USERPROFILE\Desktop\Users_Exemple.csv
     }
+    Remove-Item -Path "$PWD\MesCSV.txt"
     clear
     Write-Host "`n `n[ ERREUR ] " -ForegroundColor Red -NoNewline
     Write-Host "$StrFichierIntrouvabl`n" -ForegroundColor Yellow
     Write-Host "Un fichier vierge 'Users.csv' `ndevrais se trouver sur votre Bureau`nPour le complaiter suivée l'exemple.`n" -ForegroundColor Yellow
-    Write-Host "Nom_de_Famil,Prenom,Nom_D_Utilisateur,Mot_De_pass,`nOU=Unité_d_organisation,DC=Mon,DC=domaine,DC=local`n" -ForegroundColor Yellow
+    Write-Host "Nom_de_Famil,Prenom,Nom_D_Utilisateur,Mot_De_pass,`nOU=Unité_d_organisation,$DC`n" -ForegroundColor Yellow
     Read-Host "Entrée une touche pour terminer !"
     exit
 }
