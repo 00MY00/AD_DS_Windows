@@ -39,4 +39,7 @@ Execution du script:
 
 ----
 # <span style="color: #2dcf9c">Auteur : Denis & Kuroakashiro  </span>
+
+
+PS : l'orthographe sera corrigé prochainement
 ----
