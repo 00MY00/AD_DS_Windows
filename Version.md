@@ -11,9 +11,9 @@
 
 
 ---- 
-# <span style="color: #0dba66">A venire Version 1.1 </span>
-* simplification de l'adaptation au nom de domaine existent
-* Verification que l'AD est bien instaler avent de poursuivre
+# <span style="color: #0dba66">A venir Version 1.1 </span>
+* Simplification de l'adaptation au nom de domaine existent
+* Vérification que l'AD est bien installer avent de poursuivre
 ---- 
 
 
