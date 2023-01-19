@@ -43,7 +43,7 @@ $StrCSVDefinit = "Une erreur est survenue 0 ligne dans le fichier"
 $StrErreurImportFichier = "Une Erreur est survenu lord de l'importation !"
 $StrErreurEntrerIncorect = "`n `nEntée incorecte !!"
 $StrFichierIntrouvabl = "Aucun fichier trouvés ! `nLe fichier doi s'apeler 'Users*.csv'"
-$StrNoAD = "[ERREUR] Une erreur est survenu avec l'AD. `nVerifier que l'Active Directory soit bien instalée et confugurée"
+$StrNoAD = "Une erreur est survenu avec l'AD. `nVerifier que l'Active Directory soit bien instalée et confugurée"
 
 # Variavles location
 $location = $PWD
@@ -201,6 +201,7 @@ if ( $Errorlevel -eq $False )
 {
     # Changement de la tail de fenêtre
     mode con cols=60 lines=15
+    Write-Host "[ ERREUR ]" -ForegroundColor Red -NoNewLine
     Write-Host "$StrNoAD"
     Start-Sleep 20
     exit
