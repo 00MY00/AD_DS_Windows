@@ -201,7 +201,7 @@ if ( $Errorlevel -eq $False )
 {
     # Changement de la tail de fenêtre
     mode con cols=60 lines=15
-    Write-Host "[ ERREUR ]" -ForegroundColor Red -NoNewLine
+    Write-Host "[ ERREUR ] " -ForegroundColor Red -NoNewLine
     Write-Host "$StrNoAD"
     Start-Sleep 20
     exit
