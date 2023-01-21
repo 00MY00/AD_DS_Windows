@@ -14,6 +14,7 @@
 # <span style="color: #0dba66">A venir Version 1.2 </span>
 * Verification de la validation du MDP
 * Crach report
+* Choi des email qui sont visible dans le raport
 ---- 
 
 
