@@ -22,7 +22,7 @@ Execution du script:
 * 3)	CMD 		-> powershell.exe ./NewaddUsers.ps1
 * 3)	PowerShell 	-> ./NewaddUsers.ps1
 
-# <span style="color: #d10404">Helpe </span>
+# <span style="color: #d10404">Help </span>
 * 1)  Si vous rencontrée des problème vérifier que vous autoriser l’exécution de script -> ‘Set-ExecutionPolicy Unrestricted’
 * 2)  Vérifier dans le rapport les messages d'erreur.
 
