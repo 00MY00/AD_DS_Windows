@@ -24,7 +24,7 @@ Execution du script:
 
 # <span style="color: #d10404">Helpe </span>
 * 1)  Si vous rencontrée des problème vérifier que vous autoriser l’exécution de script -> ‘Set-ExecutionPolicy Unrestricted’
-* 2)  Selon le nombre de point dans votre domaine ajouté ou supprimer un ‘DC’
+* 2)  Vérifier dans le rapport les messages d'erreur.
 
 
 # <span style="color: #d14204">Utilisation : </span>
@@ -38,8 +38,8 @@ Execution du script:
 <br> </br>
 
 ----
-# <span style="color: #2dcf9c">Auteur : Denis & Kuroakashiro  </span>
+# <span style="color: #2dcf9c">Auteur : Kuroakashiro & Denis </span>
 
 
-PS : l'orthographe sera corrigé prochainement
+PS : Je m’excuse pour les fautes d’orthographe venant de ma forte dyslexie mais je me concentre plus sur le Scripting que l’orthographe.
 ----
