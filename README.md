@@ -3,6 +3,7 @@
 
 # <span style="color: #2dbf0f">Description : </span>
 * Permet d'ajouter plusieurs Group et utilisateur a un Active Directory Windows Serveur 
+* Tester sûr Windows Serveur 2019 - 2022 
 ----
 # Comment Installer et utiliser le Script PowerShell avec ‘Git’ sur PowerShell.
 * 1)	Ouvré un terminale PowerShell en ‘Administrateur’
