@@ -12,7 +12,7 @@
 # d'utilisation du script                      #
 ################################################
 
-# Version 1.3
+# Version 1.2
 
 # Importation du Module Active Directory
 Import-Module ActiveDirectory
@@ -385,7 +385,6 @@ function CorecteurMdp
 }
 #===============================================================#
 # Verification que AD et instalée
-clear
 Write-Host "Verification en cours ..."
 $x = Get-ADReplicationFailure localhost
 $Errorlevel = $?
@@ -403,41 +402,7 @@ if ( $Errorlevel -eq $False )
 else {
     clear
 }
-###############################################################
-# Choi du modelle de fin de l'email
-
-For ([int]$i = 0;$i -lt 1;)
-{
-    clear
-    Write-Host ""
-    Write-Host "Example : @mon.domaine.local"
-    Write-Host "Entrée le modelle d'email que vous voulez afficher dans les fichier txt des Utilisateurs"
-    Write-Host ""
-    Write-Host ""
-    [string]$Mail = Read-Host "► "
-
-    if ( $Mail -match "\@\w+\.\w+")
-    {
-        Write-Host ""
-        Write-Host "[ OK ] " -ForegroundColor Green -NoNewline
-        Write-Host "l'email est definit a p.exemple$($Mail.ToLower())"
-        Start-Sleep 3
-        $i = 2
-        break
-    }
-    else {
-        "[ Unconnu ] L'entée ne contenais pas de '@' ou de '.' Entrée -> '$($Mail.ToLower())' !" >> "$PWD\Rapport\$Raport"
-        Write-Host "[ Unconnu ] " -ForegroundColor Yellow -NoNewLine
-        Write-Host "Il manque un '@' ou un '.' dans '$($Mail.ToLower())'"
-        Start-Sleep 5
-    }
-}
-
-
-
-
-
-###############################################################
+##################################
 # Reconcaténée les str en retirent les espace est saut de ligne
 $x = $x.Partner
 $xx = "$x"
@@ -711,7 +676,7 @@ function AdUser {
         -GivenName "$FirstName" `
         -Surname "$LastName" `
         -SamAccountName "$UserName" `
-        -UserPrincipalName "$($UserName.ToLower())$($Mail.ToLower())" `
+        -UserPrincipalName "$($UserName.ToLower())@mon.domaine.local" `
         -AccountPassword (ConvertTo-SecureString -AsPlainText "$Password" -Force) -Enable $true -ChangePasswordAtLogon $true `
         -Path "$OU"
         $CodeDerreur = $?
@@ -739,15 +704,12 @@ function AdUser {
                 " UserName  : $UserName" >> "$env:USERPROFILE\Desktop\Compt_AD_Cree\$FicherTxtNam.txt"
                 " Password  : $Password" >> "$env:USERPROFILE\Desktop\Compt_AD_Cree\$FicherTxtNam.txt"
                 " DcPath    : $DcPath" >> "$env:USERPROFILE\Desktop\Compt_AD_Cree\$FicherTxtNam.txt"
-                " E-mail    : $($UserName.ToLower())$($Mail.ToLower())" >> "$env:USERPROFILE\Desktop\Compt_AD_Cree\$FicherTxtNam.txt"
+                " E-mail    : $($UserName.ToLower())@mon.domaine.local" >> "$env:USERPROFILE\Desktop\Compt_AD_Cree\$FicherTxtNam.txt"
                 "═══════════════════════════════════════════════" >> "$env:USERPROFILE\Desktop\Compt_AD_Cree\$FicherTxtNam.txt"
                 " " >> "$env:USERPROFILE\Desktop\Compt_AD_Cree\$FicherTxtNam.txt"
                 "################################################" >> "$env:USERPROFILE\Desktop\Compt_AD_Cree\$FicherTxtNam.txt"
                 "# Crée grace au script de Denis & Kuroakashiro #" >> "$env:USERPROFILE\Desktop\Compt_AD_Cree\$FicherTxtNam.txt"
                 "################################################" >> "$env:USERPROFILE\Desktop\Compt_AD_Cree\$FicherTxtNam.txt"
-            }
-            else {
-                "[ ERREUR ] Une erreur est survenu lord de la creation d'une feillie de raport pour l'utilisateur '$FirstName, $LastName' il est possible que l'utilisateur existais déja ! '$CodeDerreur' " >> "$PWD\Rapport\$Raport"
             }
         }
         else {
@@ -787,7 +749,6 @@ $LineCount = (Get-Content -Path "$PWD\Rapport\$Raport").Count
 if ( $LineCount -gt 7 )
 {
     Write-Host "Le raport d'erreur contien des Information !"
-    "-------- END --------" >> "$PWD\Rapport\$Raport"
     Start-Process -FilePath "$PWD\Rapport\$Raport"
 }
 else {
